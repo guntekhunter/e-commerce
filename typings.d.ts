@@ -6,3 +6,6 @@ export type Products = {
     description:string,
     image:string
 }
+export type Token = {
+    token: string
+}

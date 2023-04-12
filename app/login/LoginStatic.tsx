@@ -1,17 +1,43 @@
-"use client"
-import React from "react";
+"use client";
+import { Token } from "@/typings";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 export default function LoginStatic() {
-  const handleLogin = () => {
-    const res = fetch('https://fakestoreapi.com/auth/login',{
-        method:'POST',
-        body:JSON.stringify({
-            username: "mor_2314",
-            password: "83r5^_"
-        })
-    })
+  const [login, setLogin] = useState();
+  const router = useRouter();
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
-    console.log(res);
+  const postLogin = async () => {
+    try {
+      const res = await fetch("https://fakestoreapi.com/auth/login", {
+        method: "POST",
+        body: `username=${userName}&password=${password}`,
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded",
+        },
+      });
+      const result: Token = await res.json();
+      return result;
+    } catch (error) {
+      console.log("error", error);
+      return null;
+    }
+  };
+
+  const handleLogin = async () => {
+    const cobaDulu = await postLogin();
+    const token = cobaDulu?.token;
+    console.log(token);
+    {
+      if(token === undefined){
+        console.log("guoblog")
+      }else{
+        router.push(`/${token}`);
+      }
+    }
   };
   return (
     <div className="w-full flex justify-around">
@@ -23,6 +49,8 @@ export default function LoginStatic() {
           <div>
             <p className="font-bold">User Name</p>
             <input
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
               type="text"
               placeholder="ommaleka"
               className="w-full border-gray-200 border-[.1rem] rounded-md px-2 mt-2"
@@ -31,6 +59,8 @@ export default function LoginStatic() {
           <div>
             <p className="font-bold">Password</p>
             <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               type="text"
               placeholder="ommaleka"
               className="w-full border-gray-200 border-[.1rem] rounded-md px-2 mt-2"
@@ -44,6 +74,9 @@ export default function LoginStatic() {
               Login
             </button>
           </div>
+          <Link href="/" className="text-cyan-500">
+            Register
+          </Link>
         </div>
       </div>
     </div>
