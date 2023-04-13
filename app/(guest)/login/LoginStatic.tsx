@@ -35,7 +35,7 @@ export default function LoginStatic() {
       if(token === undefined){
         console.log("guoblog")
       }else{
-        router.push(`/${token}`);
+        router.push(`/dashboard/${token}`);
       }
     }
   };
