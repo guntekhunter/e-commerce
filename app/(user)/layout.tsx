@@ -1,5 +1,6 @@
 import "../globals.css";
 import Link from "next/link";
+import globalChart from "../GlobalChart";
 
 export const metadata = {
   title: "Create Next App",
@@ -22,6 +23,16 @@ export default function RootLayout({
                 <div className="flex space-x-6 pt-[.7rem]">
                   <Link href="/">Home</Link>
                   <Link href="/product-user">Product</Link>
+                  <div className="flex">
+                    <Link href="/product-user">Chart</Link>
+                    {/* {globalChart.length !== 0 && ( */}
+                      <div className="bg-black w-[1rem] h-[1rem] bg-black rounded-full text-white flex items-center justify-center pt-[1rem]">
+                        <p className="text-[.5rem] mt-[-1rem] text-white">
+                          {globalChart.length}
+                        </p>
+                      </div>
+                    {/* )} */}
+                  </div>
                 </div>
                 <div className="grid place-content-center bg-green">
                   <div className="bg-black px-[.7rem] py-[.1rem] rounded-full text-white text-[1rem] pt-[-.1rem]">

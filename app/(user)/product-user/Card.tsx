@@ -1,6 +1,7 @@
 import React from "react";
 import { Products } from "@/typings";
 import Link from "next/link";
+import globalChart from "@/app/GlobalChart";
 
 
 const fetchProducts = async () => {
@@ -27,7 +28,7 @@ export default async function Card() {
               <p className="truncate ... font-bold">${data.price}</p>
             </div>
             <div className="py-5">
-              <Link href={`/product/${data.id}`} className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">Detail</Link>
+              <Link href={`/product-user/${data.id}`} className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">Detail</Link>
             </div>
           </div>
         </div>

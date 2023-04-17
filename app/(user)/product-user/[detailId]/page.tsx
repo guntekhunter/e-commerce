@@ -1,6 +1,9 @@
 import { Products } from "@/typings";
 import { type } from "os";
 import React from "react";
+import Product from "../page";
+import ServerComponent from "./ServerComponent";
+import globalChart from "@/app/GlobalChart";
 
 export const dynamicParams = true;
 
@@ -29,16 +32,21 @@ export default async function Detail({ params: { detailId } }: PageProps) {
         <h1 className="font-bold text-[2rem]">Product Detail</h1>
         <div className="mt-[2rem] bg-white p-[3rem] flex space-x-[4rem] drop-shadow-lg">
           <div className="justify-around overflow-hide ">
-            <img src={product.image} alt="ini" className="w-[15rem]"/>
+            <img src={product.image} alt="ini" className="w-[15rem]" />
           </div>
           <div className="w-full">
-            <p className="font-bold text-[1.5rem] truncate ...">{product.title}</p>
+            <p className="font-bold text-[1.5rem] truncate ...">
+              {product.title}
+            </p>
             <p>{product.description}</p>
             <p className="text-[1.5rem] font-bold">${product.price}</p>
 
             <div className="mt-2 flex space-x-5">
-              <button className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">Buy</button>
-              <button className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">Bucket</button>
+              <button className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">
+                Buy
+              </button>
+              {/* @ts-ignore */}
+              <ServerComponent id={product.id}/>
             </div>
           </div>
         </div>
