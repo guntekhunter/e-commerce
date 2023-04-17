@@ -18,10 +18,10 @@ export default function Navbar() {
               <Link href="/product-user">Product</Link>
               <div className="flex">
                 <Link href="/product-user">Chart</Link>
-                {count !== 0 && (
+                {count.length !== 0 && (
                 <div className="bg-black w-[1rem] h-[1rem] bg-black rounded-full text-white flex items-center justify-center pt-[1rem]">
                   <p className="text-[.5rem] mt-[-1rem] text-white">
-                    {count}
+                    {count.length}
                   </p>
                 </div>
                 )}
