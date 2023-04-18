@@ -1,12 +1,12 @@
-'use client'
+"use client";
 import React from "react";
 import globalChart from "../GlobalChart";
 import Link from "next/link";
 import type { RootState } from "@/app/GlobalRedux.tsx/store";
-import {useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Navbar() {
-    const count = useSelector((state: RootState) => state.counter.value)
+  const count = useSelector((state: RootState) => state.counter.value);
   return (
     <header className="w-full bg-white justify-around flex h-[3rem] drop-shadow-md sticky top-0">
       <div className="grid w-[80%]">
@@ -17,13 +17,13 @@ export default function Navbar() {
               <Link href="/">Home</Link>
               <Link href="/product-user">Product</Link>
               <div className="flex">
-                <Link href="/product-user">Chart</Link>
+                <Link href="/chart">Chart</Link>
                 {count.length !== 0 && (
-                <div className="bg-black w-[1rem] h-[1rem] bg-black rounded-full text-white flex items-center justify-center pt-[1rem]">
-                  <p className="text-[.5rem] mt-[-1rem] text-white">
-                    {count.length}
-                  </p>
-                </div>
+                  <div className="bg-black w-[1rem] h-[1rem] bg-black rounded-full text-white flex items-center justify-center pt-[1rem]">
+                    <p className="text-[.5rem] mt-[-1rem] text-white">
+                      {count.length}
+                    </p>
+                  </div>
                 )}
               </div>
             </div>

@@ -5,9 +5,8 @@ import React, { useState } from "react";
 import globalChart from "../../../GlobalChart";
 
 // redux global component
-import {useDispatch} from "react-redux";
-import {push} from '../../../GlobalRedux.tsx/Features/counter/counterSlice';
-
+import { useDispatch } from "react-redux";
+import { push } from "../../../GlobalRedux.tsx/Features/counter/counterSlice";
 
 // @ts-ignore
 export default function Button({ id }) {
@@ -15,12 +14,7 @@ export default function Button({ id }) {
   const dispatch = useDispatch();
 
   const handleAddChart = async () => {
-    dispatch(push(id))
-    // console.log("ahhay", id);
-    // if(!globalChart.includes(id)){
-    //   globalChart.push(id);
-    // }
-    // console.log(globalChart);
+    dispatch(push(id));
   };
   return (
     <button

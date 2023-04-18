@@ -1,21 +1,19 @@
 import { Products } from "@/typings";
+import Link from "next/link";
 import { type } from "os";
 import React from "react";
-import Product from "../page";
-import ServerComponent from "./ServerComponent";
-import globalChart from "@/app/GlobalChart";
 
 export const dynamicParams = true;
 
 type PageProps = {
   params: {
-    detailId: string;
+    detailChart: string;
   };
 };
 
 // fetching detail data from api
-const fetchProduct = async (detailId: string) => {
-  const res = await fetch(`https://fakestoreapi.com/products/${detailId}`, {
+const fetchProduct = async (detailChart: string) => {
+  const res = await fetch(`https://fakestoreapi.com/products/${detailChart}`, {
     next: { revalidate: 60 },
   });
 
@@ -23,8 +21,8 @@ const fetchProduct = async (detailId: string) => {
   return product;
 };
 
-export default async function Detail({ params: { detailId } }: PageProps) {
-  const product = await fetchProduct(detailId);
+export default async function Detail({ params: { detailChart } }: PageProps) {
+  const product = await fetchProduct(detailChart);
 
   return (
     <div className="w-full justify-around flex pt-[2rem] blok">
@@ -42,11 +40,11 @@ export default async function Detail({ params: { detailId } }: PageProps) {
             <p className="text-[1.5rem] font-bold">${product.price}</p>
 
             <div className="mt-2 flex space-x-5">
-              <button className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">
-                Buy
-              </button>
-              {/* @ts-ignore */}
-              <ServerComponent id={product.id} />
+              <Link href="/login">
+                <button className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">
+                  Buy
+                </button>
+              </Link>
             </div>
           </div>
         </div>
