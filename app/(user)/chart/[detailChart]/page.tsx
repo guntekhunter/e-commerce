@@ -16,7 +16,6 @@ const fetchProduct = async (detailChart: string) => {
   const res = await fetch(`https://fakestoreapi.com/products/${detailChart}`, {
     next: { revalidate: 60 },
   });
-
   const product: Products = await res.json();
   return product;
 };

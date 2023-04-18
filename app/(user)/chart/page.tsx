@@ -10,7 +10,6 @@ const fetchProducts = async () => {
 };
 export default async function Chart() {
   const products = await fetchProducts();
-  console.log(products)
   return (
     <div className="w-full block">
       <div className="flex justify-around h-[5rem] grid place-content-center">
