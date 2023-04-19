@@ -12,8 +12,8 @@ export default function Card({ datas }) {
   const count = useSelector((state: RootState) => state.counter.value);
   const product = datas.filter((obj: { id: number }) => count.includes(obj.id));
   const products: Products[] = product;
-  console.log(product);
   return (
+    
     <div className="grid grid-cols-4 gap-4 px-[8rem] mt-5">
       {products.map((data, key) => (
         <div

@@ -1,4 +1,5 @@
-"use client";
-import Card from "./Card";
+"use client"
 
-export default Card;
+import CardFilter from "./CardFilter"
+
+export default CardFilter;

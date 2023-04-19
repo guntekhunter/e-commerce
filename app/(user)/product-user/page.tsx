@@ -1,15 +1,13 @@
 import React from "react";
-import ClientCard from "./ClientCard";
+// import ClientCard from "./ClientCard";
 import { Products } from "@/typings";
+import ClientCard from "./ClientCard";
 import ClientFilterButton from "./ClientFilterButton";
+import CardFilter from "./CardFilter";
+import { getData } from "@/app/utils/getData";
 
-const fetchProducts = async () => {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const products: Products[] = await res.json();
-  return products;
-};
 export default async function Product() {
-  const products = await fetchProducts();
+  const products = await getData();
   return (
     <div className="w-full block">
       <div className="flex justify-around h-[5rem] grid place-content-center">
@@ -17,10 +15,9 @@ export default async function Product() {
           ALL OUR PRODUCT tapi sudah login
         </h1>
       </div>
-      <ClientFilterButton/>
+      <ClientFilterButton />
       <br />
       <div className="">
-        {/*@ts-ignore*/}
         <ClientCard datas={products} />
       </div>
     </div>

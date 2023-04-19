@@ -1,11 +1,11 @@
 "use client";
-import { filter } from "@/app/GlobalRedux.tsx/Features/counter/counterSlice";
+import { filter } from "@/app/GlobalRedux.tsx/Features/filter/filterSlice";
 import { RootState } from "@/app/GlobalRedux.tsx/store";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function FilterButton() {
-  const count = useSelector((state: RootState) => state.filter.data);
+  const count = useSelector((state: RootState) => state.filter.value);
   const dispatch = useDispatch();
 
   const handleFilter = async (e: any) => {
@@ -42,7 +42,13 @@ export default function FilterButton() {
         >
           Woman
         </button>
-        <p>{count}</p>
+        <button
+          onClick={handleFilter}
+          value=""
+          className="px-10 py-1 rounded-full bg-white drop-shadow-lg "
+        >
+          All
+        </button>
       </div>
     </div>
   );
