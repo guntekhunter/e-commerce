@@ -27,20 +27,21 @@ export default async function Detail({ params: { detailId } }: PageProps) {
   const product = await fetchProduct(detailId);
 
   return (
-    <div className="w-full justify-around flex pt-[2rem] blok">
+    <div className="w-full flex justify-around">
       <div className="w-[80%]">
-        <h1 className="font-bold text-[2rem]">Product Detail</h1>
-        <div className="mt-[2rem] bg-white p-[3rem] flex space-x-[4rem] drop-shadow-lg">
-          <div className="justify-around overflow-hide ">
-            <img src={product.image} alt="ini" className="w-[15rem]" />
+        <div className="w-full flex justify-around mt-2">
+          <h1 className="font-bold text-[2rem]">PRODUCT DETAIL</h1>
+        </div>
+        <div className="bg-white mt-4 drop-shadow-lg rounded-lg md:flex md:space-x-[4rem] md:pr-[5rem] md:py-[2rem]">
+          <div className="p-[4rem] md:py-[1rem] md:p-[2rem] md:py-[2rem] md:pl-[4rem]">
+            <img src={product.image} alt="" />
           </div>
-          <div className="w-full">
+          <div className="px-6 pb-6 md:px-2 md:py-5">
             <p className="font-bold text-[1.5rem] truncate ...">
               {product.title}
             </p>
             <p>{product.description}</p>
             <p className="text-[1.5rem] font-bold">${product.price}</p>
-
             <div className="mt-2 flex space-x-5">
               <button className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">
                 Buy

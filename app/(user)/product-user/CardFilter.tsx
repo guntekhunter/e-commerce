@@ -18,7 +18,7 @@ export default function CardFilter({ datas }) {
   const products: Products[] = product;
   if (products.length === 0) {
     return (
-      <div className="grid grid-cols-4 gap-4 px-[8rem] mt-5">
+      <div className="grid md:grid-cols-4 md:px-[8rem] px-[2rem] gap-4 mt-5 grid-cols-2">
         {data.map((data, key) => (
           <div
             key={key}
@@ -48,7 +48,7 @@ export default function CardFilter({ datas }) {
     );
   } else {
     return (
-      <div className="grid grid-cols-4 gap-4 px-[8rem] mt-5">
+      <div className="grid md:grid-cols-4 md:px-[8rem] px-[2rem] gap-4 mt-5 grid-cols-2">
         {products.map((data, key) => (
           <div
             key={key}

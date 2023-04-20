@@ -12,8 +12,8 @@ export default function FilterButton() {
     dispatch(filter(e.target.value));
   };
   return (
-    <div className="flex justify-around">
-      <div className="w-[80%] flex space-x-2">
+    <div className="md:flex md:justify-around px-[2rem]">
+      <div className="md:w-[80%] md:flex md:space-x-2 grid grid-cols-2 gap-4">
         <button
           onClick={handleFilter}
           value="men's clothing"

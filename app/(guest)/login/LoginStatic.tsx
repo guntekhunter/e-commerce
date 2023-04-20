@@ -41,8 +41,8 @@ export default function LoginStatic() {
   };
   return (
     <div className="w-full flex justify-around">
-      <div className="bg-white w-[40%] mt-[5rem] rounded-md flex justify-around p-[2rem] drop-shadow-lg">
-        <div className="block w-[80%] space-y-2">
+      <div className="bg-white md:w-[30%] mt-[5rem] rounded-md flex justify-around md:p-[2rem] drop-shadow-lg w-[80%] py-[2rem]">
+        <div className="block md:w-[90%] w-[90%] space-y-2">
           <div className="flex justify-around">
             <h1 className="text-[1.5rem] font-bold">Login</h1>
           </div>
@@ -74,9 +74,6 @@ export default function LoginStatic() {
               Login
             </button>
           </div>
-          <Link href="/" className="text-cyan-500">
-            Register
-          </Link>
         </div>
       </div>
     </div>
