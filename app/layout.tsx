@@ -1,3 +1,4 @@
+import ClientProvidersWrapper from "./ClientProvidersWrapper";
 import "./globals.css";
 import Link from "next/link";
 
@@ -13,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ClientProvidersWrapper>{children}</ClientProvidersWrapper>
+      </body>
     </html>
   );
 }

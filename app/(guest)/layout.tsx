@@ -1,6 +1,6 @@
 import "../globals.css";
 import Link from "next/link";
-import Navbar from "./Navbar";
+import ClientNavbar from "./ClientNavbar";
 import ClientProvider from "../GlobalRedux.tsx/ClientProvider";
 
 export const metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ClientProvider>
-          <Navbar />
+          <ClientNavbar />
           {children}
         </ClientProvider>
       </body>

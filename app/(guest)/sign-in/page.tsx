@@ -1,11 +1,10 @@
 import React from "react";
-import LoginStatic from "./LoginStatic";
-import ServerComponent from "./ServerComponent";
+import ClientSignIn from "./ClientSignIn";
 
 export default function Login() {
   return (
     <main className="w-full">
-        <ServerComponent/>
+      <ClientSignIn />
     </main>
   );
 }
