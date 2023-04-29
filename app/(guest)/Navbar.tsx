@@ -8,6 +8,7 @@ import { RootState } from "../GlobalRedux.tsx/store";
 export default function Navbar() {
   const { data: session } = useSession();
   const count = useSelector((state: RootState) => state.counter.value);
+  console.log(session);
   if (session) {
     return (
       <header className="w-full bg-white justify-around flex h-[3rem] drop-shadow-md sticky top-0 z-10">
@@ -16,8 +17,8 @@ export default function Navbar() {
             <div className="pt-[.7rem]">TokoKu</div>
             <div className="flex space-around space-x-4">
               <div className="flex space-x-6 pt-[.7rem]">
-                <Link href="/dashboard">Home</Link>
-                <Link href="/product-user">Product</Link>
+                {/* <Link href="/dashboard">Home</Link> */}
+                <Link href="/product">Product</Link>
                 <div className="flex">
                   <Link href="/chart">Chart</Link>
                   {count.length !== 0 && (

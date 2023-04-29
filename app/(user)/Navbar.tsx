@@ -14,8 +14,8 @@ export default function Navbar() {
           <div className="pt-[.7rem]">TokoKu</div>
           <div className="flex space-around space-x-4">
             <div className="flex space-x-6 pt-[.7rem]">
-              <Link href="/dashboard">Home</Link>
-              <Link href="/product-user">Product</Link>
+              {/* <Link href="/dashboard">Home</Link> */}
+              <Link href="/product">Product</Link>
               <div className="flex">
                 <Link href="/chart">Chart</Link>
                 {count.length !== 0 && (

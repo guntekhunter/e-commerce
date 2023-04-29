@@ -1,12 +1,7 @@
 import { Products } from "@/typings";
+import Link from "next/link";
 import { type } from "os";
 import React from "react";
-import Product from "../page";
-import ServerComponent from "./ServerComponent";
-import globalChart from "@/app/GlobalChart";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
-import ClientButton from "./ClientButton";
 
 export const dynamicParams = true;
 
@@ -46,7 +41,9 @@ export default async function Detail({ params: { detailId } }: PageProps) {
             <p>{product.description}</p>
             <p className="text-[1.5rem] font-bold">${product.price}</p>
             <div className="mt-2 flex space-x-5">
-              <ClientButton id={product.id}/>
+              <Link href="/login" className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">
+                Login
+              </Link>
             </div>
           </div>
         </div>
