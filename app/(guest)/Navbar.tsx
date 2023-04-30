@@ -4,11 +4,17 @@ import React from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux.tsx/store";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 export default function Navbar() {
   const { data: session } = useSession();
+  const router = useRouter();
   const count = useSelector((state: RootState) => state.counter.value);
-  console.log(session);
+  const handleSignOut = () => {
+    Cookies.remove("loggedin")
+    signOut();
+  };
   if (session) {
     return (
       <header className="w-full bg-white justify-around flex h-[3rem] drop-shadow-md sticky top-0 z-10">
@@ -32,7 +38,7 @@ export default function Navbar() {
               </div>
               <div className="grid place-content-center bg-green">
                 <div className="bg-black px-[.7rem] py-[.1rem] rounded-full text-white text-[1rem] pt-[-.1rem]">
-                  <button onClick={() => signOut()}>LogOut</button>
+                  <button onClick={handleSignOut}>LogOut</button>
                 </div>
               </div>
             </div>

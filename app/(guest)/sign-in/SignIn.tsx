@@ -6,14 +6,13 @@ import Link from "next/link";
 import Dashboard from "@/app/component/Dashboard";
 import Image from "next/image";
 import google from "@/public/icon/google.png";
+import Cookies from "js-cookie";
 
 export default function SignIn() {
   const { data: session } = useSession();
   const router = useRouter();
   const handleSignIn = () => {
-    if (session) {
-      router.push("/dashboard");
-    }
+    Cookies.set("loggedin", true.toString());
     signIn();
   };
 

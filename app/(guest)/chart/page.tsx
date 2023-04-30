@@ -1,7 +1,7 @@
-import Card from "@/app/(user)/chart/Card";
 import React from "react";
 import ClientCard from "./ClientCard";
 import { Products } from "@/typings";
+import { useSession } from "next-auth/react";
 
 const fetchProducts = async () => {
   const res = await fetch("https://fakestoreapi.com/products");
