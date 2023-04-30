@@ -4,8 +4,16 @@ import GoogleProvider from "next-auth/providers/google";
 export default NextAuth({
   providers: [
     GoogleProvider({
-      clientId: "629123249260-5pvhgif13gkckah1nu15mdq803lai50u.apps.googleusercontent.com",
-      clientSecret: "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"
+      clientId:
+        process.env.GOOGLE_CLIENT_ID ??
+        "629123249260-5pvhgif13gkckah1nu15mdq803lai50u.apps.googleusercontent.com",
+      clientSecret:
+        process.env.GOOGLE_CLIENT_SECRET ??
+        "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",
     }),
   ],
+  secret:process.env.SECRET ?? "962ccba5a239f611ac57e5a718b60918"
 });
+
+// clientId: "629123249260-5pvhgif13gkckah1nu15mdq803lai50u.apps.googleusercontent.com",
+// clientSecret: "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"
