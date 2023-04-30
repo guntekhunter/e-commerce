@@ -1,12 +1,14 @@
-'use client';
-import React from "react";
-import { Products } from "@/typings";
-import Link from "next/link";
-import { useSelector } from "react-redux";
+"use client";
 import { RootState } from "@/app/GlobalRedux.tsx/store";
+import { getData } from "@/app/utils/getData";
+import { Products } from "@/typings";
+import { stat } from "fs";
+import Link from "next/link";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 // @ts-ignore
-export default function Card({datas}) {
+export default function CardFilter({ datas }) {
   const filter = useSelector((state: RootState) => state.filter.value);
   const product = datas.filter((obj: { category: string }) =>
     filter.includes(obj.category)
@@ -33,7 +35,7 @@ export default function Card({datas}) {
               </div>
               <div className="py-5">
                 <Link
-                  href={`/product/${data.id}`}
+                  href={`/product-user/${data.id}`}
                   className="bg-black text-white px-[2rem] py-[.2rem] rounded-full"
                 >
                   Detail

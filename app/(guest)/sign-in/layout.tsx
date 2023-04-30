@@ -1,5 +1,4 @@
-import ClientProvidersWrapper from "./ClientProvidersWrapper";
-import "./globals.css";
+import "../../globals.css";
 import Link from "next/link";
 
 export const metadata = {
@@ -13,10 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <ClientProvidersWrapper>{children}</ClientProvidersWrapper>
-      </body>
-    </html>
-  );
-}
+    <main className="flex">
+        <div className="w-full justify-around flex">
+            {children}
+        </div>
+    </main>
+  )}

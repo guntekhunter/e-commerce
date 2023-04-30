@@ -18,7 +18,7 @@ export default function Home() {
               </div>
               <div className="grid place-content-center bg-green">
                 <div className="bg-black px-[.7rem] py-[.1rem] rounded-full text-white text-[1rem] pt-[-.1rem]">
-                  <Link href="/login">Login</Link>
+                  <Link href="/sign-in">Login</Link>
                 </div>
               </div>
             </div>

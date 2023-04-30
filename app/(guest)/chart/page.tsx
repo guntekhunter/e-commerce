@@ -1,7 +1,7 @@
-import Card from "@/app/(user)/chart/Card";
 import React from "react";
 import ClientCard from "./ClientCard";
 import { Products } from "@/typings";
+import { useSession } from "next-auth/react";
 
 const fetchProducts = async () => {
   const res = await fetch("https://fakestoreapi.com/products");
@@ -10,7 +10,6 @@ const fetchProducts = async () => {
 };
 export default async function Chart() {
   const products = await fetchProducts();
-  console.log(products)
   return (
     <div className="w-full block">
       <div className="flex justify-around h-[5rem] grid place-content-center">

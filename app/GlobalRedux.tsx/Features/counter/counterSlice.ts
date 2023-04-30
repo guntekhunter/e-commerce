@@ -23,11 +23,7 @@ export const counterSlice = createSlice({
           state.value.push(action.payload);
         }
       }
-    },
-    // decrement: (state) => {state.value -= 1},
-    // incrementByAmount: (state, action) => {
-    //     state.value += action.payload;
-    // }
+    }
   },
 });
 

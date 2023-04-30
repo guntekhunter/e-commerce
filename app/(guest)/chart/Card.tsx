@@ -12,14 +12,10 @@ export default function Card({ datas }) {
   const count = useSelector((state: RootState) => state.counter.value);
   const product = datas.filter((obj: { id: number }) => count.includes(obj.id));
   const products: Products[] = product;
-  console.log(product);
   return (
-    <div className="grid grid-cols-4 gap-4 px-[8rem] mt-5">
+    <div className="grid md:grid-cols-4 md:px-[8rem] px-[2rem] gap-4 mt-5 grid-cols-2">
       {products.map((data, key) => (
-        <div
-          key={key}
-          className="bg-white drop-shadow-lg rounded-lg pb-[2rem]"
-        >
+        <div key={key} className="bg-white drop-shadow-lg rounded-lg pb-[2rem]">
           <div className="w-full h-[10rem] overflow-hidden grid place-content-center">
             <img src={data.image} alt="" className="w-[5rem]" />
           </div>
