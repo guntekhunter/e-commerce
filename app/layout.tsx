@@ -1,6 +1,8 @@
 import ClientProvidersWrapper from "./ClientProvidersWrapper";
 import "./globals.css";
 import Link from "next/link";
+import ClientProvider from "./GlobalRedux.tsx/ClientProvider";
+import ClientNavbar from "./ClientNavbar";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,7 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ClientProvidersWrapper>{children}</ClientProvidersWrapper>
+        <ClientProvidersWrapper>
+          <ClientProvider>
+            <ClientNavbar />
+            {children}
+          </ClientProvider>
+        </ClientProvidersWrapper>
       </body>
     </html>
   );

@@ -1,4 +1,5 @@
-import "../../globals.css";
+import "../globals.css";
+import Link from "next/link";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,7 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <main className="flex">
-      <div className="w-full justify-around flex">{children}</div>
+        <div className="w-full justify-around flex">
+            {children}
+        </div>
     </main>
-  );
-}
+  )}

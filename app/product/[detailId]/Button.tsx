@@ -2,11 +2,11 @@
 import { Chart } from "@/typings";
 import { Result } from "postcss";
 import React, { useState } from "react";
-import globalChart from "../../../GlobalChart";
+import globalChart from "../../GlobalChart";
 
 // redux global component
 import { useDispatch } from "react-redux";
-import { push } from "../../../GlobalRedux.tsx/Features/counter/counterSlice";
+import { push } from "../../GlobalRedux.tsx/Features/counter/counterSlice";
 
 // @ts-ignore
 export default function Button({ id }) {

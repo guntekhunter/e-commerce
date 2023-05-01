@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import { getData } from "@/app/utils/getData";
 import ClientCard from "./ClientCard";
-import ClientFilterButton from "../../(user)/product-user/ClientFilterButton";
+import ClientFilterButton from "../(user)/product-user/ClientFilterButton";
 
 export default async function Product() {
   const products = await getData();
