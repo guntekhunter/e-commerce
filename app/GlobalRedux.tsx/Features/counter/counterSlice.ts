@@ -1,14 +1,13 @@
 "use client";
 
 import { createSlice } from "@reduxjs/toolkit";
+import { stat } from "fs";
 
 export interface counterState {
-  // value:number
   value: any;
 }
 
 const initialState: counterState = {
-  // value:0
   value: [],
 };
 
@@ -16,18 +15,21 @@ export const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    // increment: (state) => {state.value+=1},
     push: (state, action) => {
       if (!state.value.includes(action.payload)) {
         {
           state.value.push(action.payload);
         }
       }
-    }
+    },
+    remove: (state, action) => {
+      const itemId = parseInt(action.payload);
+      state.value = state.value.filter((item: any) => item != itemId);
+    },
   },
 });
 
-export const { push } = counterSlice.actions;
+export const { push, remove } = counterSlice.actions;
 // export const {increment, decrement, incrementByAmount} = counterSlice.actions;
 
 export default counterSlice.reducer;
