@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import Dashboard from "@/app/component/Dashboard";
 import Image from "next/image";
 import google from "@/public/icon/google.png";
 import Cookies from "js-cookie";
+import Loading from "../product/loading";
 
 export default function SignIn() {
   const { data: session } = useSession();
@@ -17,7 +18,11 @@ export default function SignIn() {
   };
 
   if (session) {
-    return <Dashboard user={session?.user} />;
+    return (
+      <Suspense fallback={<Loading />}>
+        <Dashboard user={session?.user} />;
+      </Suspense>
+    );
   } else {
     return (
       <div className="w-full flex justify-around">

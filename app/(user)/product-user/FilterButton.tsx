@@ -1,7 +1,8 @@
 "use client";
 import { filter } from "@/app/GlobalRedux.tsx/Features/filter/filterSlice";
 import { RootState } from "@/app/GlobalRedux.tsx/store";
-import React from "react";
+import Loading from "@/app/product/loading";
+import React, { Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function FilterButton() {

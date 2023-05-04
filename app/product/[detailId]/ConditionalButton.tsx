@@ -20,7 +20,7 @@ export default function ConditionalButton({ id }) {
       ) : (
         <div>
           <Link
-            href="/login"
+            href="/sign-in"
             className="bg-black text-white px-[2rem] py-[.2rem] rounded-full"
           >
             Login

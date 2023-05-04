@@ -1,12 +1,13 @@
-'use client';
-import React from "react";
+"use client";
+import React, { Suspense } from "react";
 import { Products } from "@/typings";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/GlobalRedux.tsx/store";
+import Loading from "./loading";
 
 // @ts-ignore
-export default function Card({datas}) {
+export default function Card({ datas }) {
   const filter = useSelector((state: RootState) => state.filter.value);
   const product = datas.filter((obj: { category: string }) =>
     filter.includes(obj.category)
@@ -14,6 +15,8 @@ export default function Card({datas}) {
   const defaultData = datas;
   const data: Products[] = defaultData;
   const products: Products[] = product;
+
+  console.log(data.length);
   if (products.length === 0) {
     return (
       <div className="grid md:grid-cols-4 md:px-[8rem] px-[2rem] gap-4 mt-5 grid-cols-2">

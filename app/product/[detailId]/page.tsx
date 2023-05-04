@@ -1,12 +1,13 @@
 import { Products } from "@/typings";
 import { type } from "os";
-import React from "react";
+import React, { Suspense } from "react";
 import Product from "../page";
 import ServerComponent from "./ServerComponent";
 import globalChart from "@/app/GlobalChart";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import ClientButton from "./ClientButton";
+import Loading from "../loading";
 
 export const dynamicParams = true;
 
@@ -32,24 +33,26 @@ export default async function Detail({ params: { detailId } }: PageProps) {
   return (
     <div className="w-full flex justify-around">
       <div className="w-[80%]">
-        <div className="w-full flex justify-around mt-2">
-          <h1 className="font-bold text-[2rem]">PRODUCT DETAIL</h1>
-        </div>
-        <div className="bg-white mt-4 drop-shadow-lg rounded-lg md:flex md:space-x-[4rem] md:pr-[5rem] md:py-[2rem]">
-          <div className="p-[4rem] md:py-[1rem] md:p-[2rem] md:py-[2rem] md:pl-[4rem]">
-            <img src={product.image} alt="" />
+        <Suspense fallback={<Loading />}>
+          <div className="w-full flex justify-around mt-2">
+            <h1 className="font-bold text-[2rem]">PRODUCT DETAIL</h1>
           </div>
-          <div className="px-6 pb-6 md:px-2 md:py-5">
-            <p className="font-bold text-[1.5rem] truncate ...">
-              {product.title}
-            </p>
-            <p>{product.description}</p>
-            <p className="text-[1.5rem] font-bold">${product.price}</p>
-            <div className="mt-2 flex space-x-5">
-              <ClientButton id={product.id}/>
+          <div className="bg-white mt-4 drop-shadow-lg rounded-lg md:flex md:space-x-[4rem] md:pr-[5rem] md:py-[2rem]">
+            <div className="p-[4rem] md:py-[1rem] md:p-[2rem] md:py-[2rem] md:pl-[4rem]">
+              <img src={product.image} alt="" />
+            </div>
+            <div className="px-6 pb-6 md:px-2 md:py-5">
+              <p className="font-bold text-[1.5rem] truncate ...">
+                {product.title}
+              </p>
+              <p>{product.description}</p>
+              <p className="text-[1.5rem] font-bold">${product.price}</p>
+              <div className="mt-2 flex space-x-5">
+                <ClientButton id={product.id} />
+              </div>
             </div>
           </div>
-        </div>
+        </Suspense>
       </div>
     </div>
   );

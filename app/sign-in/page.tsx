@@ -1,10 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ClientSignIn from "./ClientSignIn";
+import Loading from "../product/loading";
 
 export default function Login() {
   return (
     <main className="w-full">
-      <ClientSignIn />
+      <Suspense fallback={<Loading />}>
+        <ClientSignIn />
+      </Suspense>
     </main>
   );
 }
