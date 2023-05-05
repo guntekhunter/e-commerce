@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import ServerCard from "./ServerCard";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/GlobalRedux.tsx/store";
@@ -8,9 +8,11 @@ import { data } from "autoprefixer";
 import { Products } from "@/typings";
 import { remove } from "../GlobalRedux.tsx/Features/counter/counterSlice";
 import Loading from "../product/loading";
+import { show } from "../GlobalRedux.tsx/Features/modal/modalSlice";
 
 // @ts-ignore
 export default function Card({ datas }) {
+
   const dispatch = useDispatch();
 
   const count = useSelector((state: RootState) => state.counter.value);
@@ -24,11 +26,17 @@ export default function Card({ datas }) {
   const cancelChart = async (id: number) => {
     dispatch(remove(id));
   };
+
+  const checkOut = async () => {
+    if(totalPrice){
+      dispatch(show(true));
+    }
+  };
   return (
     <div className="w-full justify-around flex">
       <div className="grid md:grid-cols-3 w-[80%] gap-[2rem]">
         <div className="col-span-2">
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <div className="grid grid-cols-1 gap-4">
               {products.map((data, key) => (
                 <div
@@ -64,7 +72,10 @@ export default function Card({ datas }) {
             <p className="font-bold text-[1.5rem]">CHACKOUT</p>
             <p className="font-bold">Total Price : Rp {totalPrice}</p>
             <div className="py-5 w-full">
-              <button className="bg-black text-white px-[2rem] py-[.2rem] rounded-full">
+              <button
+                className="bg-black text-white px-[2rem] py-[.2rem] rounded-full"
+                onClick={checkOut}
+              >
                 Check Out
               </button>
             </div>
