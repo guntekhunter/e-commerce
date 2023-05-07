@@ -7,7 +7,8 @@ export default function middleware(req) {
   let url = req.url;
 
   if (!verify && url.includes("/chart")) {
-    return NextResponse.redirect("http://localhost:3000/")
+    return NextResponse.redirect("https://e-commerce-gules-nu.vercel.app/")
+    // return NextResponse.redirect("http://localhost:3000/")
   }
   if (!verify && url.includes("/")) {
     Cookies.remove("loggedin");
