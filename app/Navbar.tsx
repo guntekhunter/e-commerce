@@ -17,6 +17,7 @@ export default function Navbar() {
   const count = useSelector((state: RootState) => state.counter.value);
   const handleSignOut = () => {
     Cookies.remove("loggedin");
+    setNavbarShow(false);
     signOut();
   };
   const showNavbar = () => {
@@ -40,17 +41,17 @@ export default function Navbar() {
               />
             </div>
             <div
-              className={`md:flex space-around space-x-4 space-x-4 absolute md:static bg-white drop-shadow-md right-0 block h-[100vh] md:h-full pl-[5rem] pr-[5rem] md:pl-0 md:pr-0 py-[2rem] md:py-0 md:drop-shadow-none duration-500 ${
+              className={`md:flex space-around space-x-4 space-x-4 absolute md:static bg-white drop-shadow-md right-0 block h-[100vh] md:h-full pl-[5rem] pr-[5rem] md:pl-0 md:pr-0 py-[2rem] md:py-0 md:drop-shadow-none duration-100 ${
                 navbarShow ? "" : "right-[-20rem]"
               }`}
             >
               <div className="md:flex md:space-x-6 md:pt-[.7rem] block space-y-2 md:space-y-0">
                 <div className="grid place-content-center md:flex">
-                  <Link href="/product">Product</Link>
+                  <Link href="/product" onClick={hideNavbar}>Product</Link>
                 </div>
                 <div className="grid place-content-center md:flex">
                   <div className="flex">
-                    <Link href="/chart">Chart</Link>
+                    <Link href="/chart" onClick={hideNavbar}>Chart</Link>
                     {count.length !== 0 && (
                       <div className="bg-black w-[1rem] h-[1rem] bg-black rounded-full text-white flex items-center justify-center pt-[1rem]">
                         <p className="text-[.5rem] mt-[-1rem] text-white">
@@ -82,7 +83,7 @@ export default function Navbar() {
   } else {
     return (
       <header className="w-full bg-white justify-around flex h-[3rem] drop-shadow-md sticky top-0 z-10">
-        <div className="grid w-[80%]">
+        <div className="grid w-[80%] ">
           <div className="flex justify-between">
             <div className="pt-[.7rem]">TokoKu</div>
             <div className="pt-3 md:hidden">
@@ -100,15 +101,15 @@ export default function Navbar() {
             >
               <div className="md:flex md:space-x-6 md:pt-[.7rem] block space-y-2 md:space-y-0">
                 <div className="grid place-content-center md:flex">
-                  <Link href="/">Home</Link>
+                  <Link href="/" onClick={hideNavbar}>Home</Link>
                 </div>
                 <div className="grid place-content-center md:flex">
-                  <Link href="/product">Product</Link>
+                  <Link href="/product" onClick={hideNavbar}>Product</Link>
                 </div>
               </div>
               <div className="grid place-content-center mt-3 md:mt-0">
                 <div className="bg-black px-[.7rem] py-[.1rem] rounded-full text-white text-[1rem] md:pt-[-.1rem] md:mr-0 mr-[1rem]">
-                  <Link href="/sign-in">Login</Link>
+                  <Link href="/sign-in" onClick={hideNavbar}>Login</Link>
                 </div>
               </div>
               <div className="pt-3 md:hidden grid place-content-center pr-[1rem]">

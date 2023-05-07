@@ -19,8 +19,10 @@ export default function RootLayout({
       <body>
         <ClientProvidersWrapper>
           <ClientProvider>
-            <ClientNavbar />
-            {children}
+            <div className="overflow-hidden">
+              <ClientNavbar />
+              {children}
+            </div>
           </ClientProvider>
         </ClientProvidersWrapper>
       </body>
